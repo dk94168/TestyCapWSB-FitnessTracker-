@@ -26,4 +26,6 @@ public class EmailUtils {
     public String getLastSentMessage() {
         return lastSentMessage;
     }
+
+    public void setLastSentMessage() { lastSentMessage = ""; }
 }

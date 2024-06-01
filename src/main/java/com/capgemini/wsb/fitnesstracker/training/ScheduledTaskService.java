@@ -20,7 +20,8 @@ public class ScheduledTaskService {
     public void logPeriodicMessage() {
         String lastMessage = emailUtils.getLastSentMessage();
         if (!lastMessage.isEmpty()) {
-            logger.info("lastMessage");
+            logger.info("Sent an email message.");
+            emailUtils.setLastSentMessage();
         } else {
             logger.info("No email sent yet.");
         }
