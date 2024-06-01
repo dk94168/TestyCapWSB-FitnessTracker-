@@ -1,0 +1,45 @@
+
+# Pobranie wszystkich użytkowników
+curl --location 'localhost:8080/v1/users'
+
+# Pobranie wszystkich użytkowników o ograniczonej ilości danych
+curl --location 'localhost:8080/v1/users/simple'
+
+# Pobranie użytkownika po jego ID
+curl --location 'localhost:8080/v1/users/1'
+
+# Pobranie użytkownika po adresie e-mail
+curl --location 'localhost:8080/v1/users/email?email=Emma.Johnson%40domain.com'
+
+# Wyszukanie użytkownika po jego adresie e-mail
+curl --location 'localhost:8080/v1/users/byEmailIgnore/Emma.Johnson@domain.com'
+
+# Wyszukanie użytkownika po fragmencie adresu e-mail
+curl --location --request GET 'localhost:8080/v1/users/byEmailSearch/Emma'
+
+# Pobranie użytkowników starszych niż podana data urodzenia
+curl --location 'localhost:8080/v1/users/older/1995-01-01'
+
+# Dodawanie nowego użytkownika
+curl --location 'localhost:8080/v1/users' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "firstName": "Asia",
+        "lastName": "Nowak",
+        "birthdate": "1995-07-01",
+        "email": "an@domain.com"
+}'
+
+# Aktualizacja danych użytkownika
+curl --location --request PUT 'localhost:8080/v1/users/2' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "firstName": "Kasia",
+        "lastName": "Nowak",
+        "birthdate": "1997-05-01",
+        "email": "kn@sokrates.pl"
+}'
+
+# Usuwanie użytkownika
+curl --location --request DELETE 'localhost:8080/v1/users/10'
+
