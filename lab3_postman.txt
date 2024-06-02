@@ -1,0 +1,3 @@
+
+# Wysłanie e-maila z informacją o zakończonym treningu
+curl --location --request POST 'localhost:8080/v1/trainings/1/completed'
